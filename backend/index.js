@@ -39,7 +39,7 @@ app.post('/register', registerRouter);
 app.post('/login', LoginRouter);
 
 app.post('/logout', (req,res) => {    
-    res.clearCookie('token','', {
+    res.clearCookie('token', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production', 
         sameSite: 'None', 
