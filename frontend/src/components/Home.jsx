@@ -3,8 +3,9 @@ import { Posts } from './Posts'
 
 export const Home = () => {
   
-    const [posts,SetPosts] = useState([])
-    const url = 'http://localhost:4000/posts';
+    const [posts,SetPosts] = useState([]);
+
+    const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/posts`;
 
     useEffect(() => {
       fetch( url )
@@ -16,7 +17,7 @@ export const Home = () => {
     return (
       <>        
         { posts.length > 0 && posts.map( post => (
-          <Posts {...post} />
+          <Posts {...post} key={post._id} />
         ))
         }
       </>

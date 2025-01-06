@@ -12,7 +12,7 @@ export const LoginPage = () => {
   const { setUserInfo } = useContext( UserContext );
 
   // backend url
-  const url = 'http://localhost:4000/login';
+  const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/login`;
 
   const login = async (e) => {
     e.preventDefault();    
@@ -41,32 +41,39 @@ export const LoginPage = () => {
   
   return (
     <>
-        <form className='login' onSubmit={ login }>          
-            <h1> Login </h1>
-            <label htmlFor="email"> Email </label>
-            {( emailExist !== false ) ? <p className='email-password'> Email or Password is Wrong Credentials. </p>  : <p className='email-password'></p> }
-            <input 
-              type = "email" 
-              name = "email" 
-              id = "email" 
-              placeholder = 'Email'
-              required
-              value = { email }
-              onChange = { (e) => setEmail( e.target.value ) }
-            />
-            
-            <label htmlFor="password"> Password </label>
-            <input 
-              type = "password" 
-              name = "password" 
-              id = "password" 
-              placeholder = 'Password'
-              required
-              value = {password}
-              onChange = { (e) => setPassword( e.target.value ) }
-            />
-            <button> Log in </button>
-        </form>
+      <div className='login-page'>
+        <div className='login-leftside'>
+          <img src="/android-chrome-192x192.png" alt="logo" />
+        </div>
+        <div className='login-rightside'>        
+          <form className='login' onSubmit={ login }>          
+              <h1> Log in Account </h1>
+              <label htmlFor="email"> Email </label>
+              {( emailExist !== false ) ? <p className='email-password'> Email or Password is Wrong Credentials. </p>  : <p className='email-password'></p> }
+              <input 
+                type = "email" 
+                name = "email" 
+                id = "email" 
+                placeholder = 'eg.johnfrans@gmail.com'
+                required
+                value = { email }
+                onChange = { (e) => setEmail( e.target.value ) }
+              />
+              
+              <label htmlFor="password"> Password </label>
+              <input 
+                type = "password" 
+                name = "password" 
+                id = "password" 
+                placeholder = 'Enter your password'
+                required
+                value = {password}
+                onChange = { (e) => setPassword( e.target.value ) }
+              />
+              <button> Log in </button>
+          </form>
+        </div>
+      </div>
     </>
   )
 }

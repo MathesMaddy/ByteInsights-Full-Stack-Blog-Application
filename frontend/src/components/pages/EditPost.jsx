@@ -16,7 +16,7 @@ const EditPost = () => {
     const [ redirect, setRedirect ] = useState(false);
     
     // backend url 
-    const url = 'http://localhost:4000/post/'
+    const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/post/`;
 
     useEffect(() => {
         fetch( url + `${id}` ) .then( res => { 

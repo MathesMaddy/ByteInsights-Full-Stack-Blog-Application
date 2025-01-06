@@ -7,11 +7,11 @@ export const Posts = ( {_id, title, summary, cover, content, createdAt, author} 
   // solve the path issue in 
   const uploadsImg = cover.replace(/\\/g,'/');
   // backend url
-  const url = 'http://localhost:4000/'; 
+  const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/`; 
 
   return (
     <>
-        <div className="post">
+        <div className="post" >
           <div className="img">
             <Link to={ `post/${_id}` }>
               <img src={ url + uploadsImg } alt="" />
@@ -22,7 +22,7 @@ export const Posts = ( {_id, title, summary, cover, content, createdAt, author} 
               <h2>{ title }</h2>
             </Link>
             <p className='info'>
-              <a href="" className='author'>{ author.username }</a>
+              <span href="" className='author'>{ author.username }</span>
               <span>{format( new Date( createdAt ) , 'MMM d, yyyy HH:mm') }</span>              
             </p>
             <p className='summary'>{ summary }</p>

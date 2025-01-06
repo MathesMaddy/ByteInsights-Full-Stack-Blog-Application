@@ -6,21 +6,21 @@ import { Navigate } from 'react-router-dom'
 export const CreatePost = () => {    
 
     const [ title, setTitle ] = useState('');
-    const [ summary, setSummary ] = useState();
-    const [ content, setContent ] = useState();
+    const [ summary, setSummary ] = useState('');
+    const [ content, setContent ] = useState('');
     const [ file, setFile ] = useState();
     const [ redirect, setRedirect ] = useState(false);
     // backend url
-    const url = 'http://localhost:4000/create-post';
+    const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/create-post`;
 
     const createNewPost = async (e) => {
         e.preventDefault ();
         // post details store in data
         const data = new FormData();
-        data.set('title',title);
-        data.set('summary',summary);
-        data.set('content',content);
-        data.set('file',file[0]);
+        data.set('title', title);
+        data.set('summary', summary);
+        data.set('content', content);
+        data.set('file', file[0]);
 
         const response = await fetch( url, {
             method:'POST',       
@@ -39,34 +39,35 @@ export const CreatePost = () => {
     
     return (
     <>
-        <form className='create-post' onSubmit={createNewPost}>
+        <form className = 'create-post' onSubmit = {createNewPost}>
+        <h2>Create New Post</h2>
             <input 
-                type='text' 
-                placeholder='Title' 
-                value={title}
+                type = 'text' 
+                placeholder = 'Title' 
+                value = {title}
                 required 
-                name="title"
-                onChange={e => setTitle(e.target.value)}
+                name = "title"
+                onChange = {e => setTitle(e.target.value)}
             />
             <input 
-                type='text' 
-                placeholder='Summary' 
-                value={summary} 
+                type = 'text' 
+                placeholder = 'Summary' 
+                value = {summary} 
                 required
-                name="summary"
-                onChange={e => setSummary(e.target.value)}
+                name = "summary"
+                onChange = {e => setSummary(e.target.value)}
             />
             <input 
-                type="file" 
-                name="file"
+                type = "file" 
+                name = "file"
                 required
-                onChange={e => setFile(e.target.files)} 
+                onChange = {e => setFile(e.target.files)} 
             />
             <ReactQuill 
-                value={content}                 
-                onChange={newValue => setContent(newValue)} 
+                value = {content}                 
+                onChange = {newValue => setContent(newValue)} 
             />            
-            <button className='create-post-btn'> Create New Post </button>
+            <button className = 'create-post-btn'> Create New Post </button>
         </form>
     </>
   )

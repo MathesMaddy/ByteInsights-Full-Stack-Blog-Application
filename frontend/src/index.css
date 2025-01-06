@@ -3,5 +3,49 @@
 body{
     margin:0;
     color:#222;
-    font-family: 'Karla',sans-serif; 
+    font-family: 'Karla',sans-serif;     
+    background-color: whitesmoke;
+}
+body.dark-mode{
+    color:white;
+    background-color: #121212;
+}
+
+body.dark-mode .header-nav{ 
+    border-bottom: 2px whitesmoke solid;
+    color:white;
+    background-color: #121212;
+} 
+body.dark-mode .header-nav .theme{ 
+    color:white;
+} 
+body.dark-mode a{
+    color:white;
+}
+body.dark-mode a.author{
+    color:#999;
+}
+body.dark-mode .login-leftside{
+    background-color: whitesmoke;
+}
+body.dark-mode input{
+    color:white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+body.dark-mode form input{
+    color:white;
+    background-color: black;
+    border: 0px solid white;
+    border-radius: 6px;
+}
+body.dark-mode a.edit-btn{
+    color:white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+body.dark-mode .ql-formats{
+    background-color: white;
 }

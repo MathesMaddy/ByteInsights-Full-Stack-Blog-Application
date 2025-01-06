@@ -1,11 +1,12 @@
 import React, { useContext, useEffect,useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { UserContext } from './UserContext'
+import ThemeToggle from './pages/ThemeToggle'
 
 export const Header = () => {  
     const { setUserInfo, userInfo } = useContext( UserContext )
 
-    const url = 'http://localhost:4000/profile';
+    const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/profile`;
 
     useEffect(() => {
       fetch(url , {      
@@ -16,7 +17,7 @@ export const Header = () => {
     }, [])
 
     const logout = async() => {    
-      await fetch( 'http://localhost:4000/logout', {
+      await fetch( `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/logout`, {
         credentials: 'include',
         method: 'POST'
       })
@@ -29,17 +30,23 @@ export const Header = () => {
 
     return (
       <>
+        <div className='header-nav'>
           <header className='header'>
-            <Link className='logo' to='/'>MyBlog</Link>
-            <nav>
+            <Link className='logo' to='/'>ByteInsights</Link>
+            <nav className='navbar'>
+              <ThemeToggle />
               {email && (
                 <>
                   <ul className='app-ul'>
+
+                    <li className='app-li app-li-p'>
+                      <p className='app-li-p' >Hi, {userInfo.username}</p>
+                    </li>
                     <li className='app-li'> 
                       <Link to={'/create-new-post'}>Create New Post</Link>
                     </li>
                     <li className='app-li'> 
-                      <button className='btn-logout' onClick={logout}>Logout</button>
+                      <a className='btn-logout' onClick={logout}>Logout</a>
                     </li>
                   </ul> 
                 </>
@@ -56,6 +63,8 @@ export const Header = () => {
               )}          
             </nav>
           </header>
+        </div>
+        <hr />
       </>
     )
 }
