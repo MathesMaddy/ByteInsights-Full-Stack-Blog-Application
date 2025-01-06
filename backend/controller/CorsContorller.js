@@ -1,5 +1,5 @@
 const whiteList = [ 
-    'http://localhost:5173', 
+    'http://localhost:5173/', 
     'http://192.168.43.154:5173',
 ];
 
