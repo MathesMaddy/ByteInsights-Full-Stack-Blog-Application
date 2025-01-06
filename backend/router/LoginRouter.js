@@ -11,7 +11,10 @@ const LoginRouter = async (req,res) => {
         if(passOk) {    
              jwt.sign({email, id: UserDoc._id, username: UserDoc.username}, secret, {},(err,token) => {
                 if(err) throw err
-                res.cookie('token',token).json({
+                res.cookie('token',token, {
+                    httpOnly: true,                    
+                    sameSite: 'None',
+                }).json({
                     id:UserDoc._id,
                     email,
                     username: UserDoc.username,
