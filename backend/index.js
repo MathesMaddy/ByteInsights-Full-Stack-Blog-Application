@@ -38,8 +38,14 @@ app.get('/profile', ProfileRouter);
 app.post('/register', registerRouter);
 app.post('/login', LoginRouter);
 
-app.post('/logout', (req,res) => {
-    res.clearCookie('token').json('ok')
+app.post('/logout', (req,res) => {    
+    res.clearCookie('token','', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', 
+        sameSite: 'None', 
+        expires: new Date(0),
+        path: '/', 
+    }).json('ok')
 })
 
 app.get('/posts', async (req,res) => {
