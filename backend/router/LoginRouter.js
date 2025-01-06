@@ -14,6 +14,7 @@ const LoginRouter = async (req,res) => {
                 res.cookie('token',token, {
                     httpOnly: true,                    
                     sameSite: 'None',
+                    secure: process.env.NODE_ENV === 'production',
                 }).json({
                     id:UserDoc._id,
                     email,
