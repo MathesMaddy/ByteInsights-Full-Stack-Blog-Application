@@ -193,6 +193,9 @@ div.post-page{
   max-width: 1000px;
   margin: 85px auto 0px auto;
 }
+div.post-page .content p{
+  text-align: justify;
+}  
 div.post-page div.image{
   max-height: 450px;
   display: flex;
@@ -324,9 +327,8 @@ a.edit-btn svg{
   }
   form.login input, form.register input, .create-post input{
     display: block;
-    width:95%;
-    margin:10px auto;
-    padding: 5px 7px;
+    width:100%;
+    margin: 10px auto;
     background-color:#fff;
     border-radius: 5px;
     box-sizing: border-box;
@@ -337,13 +339,13 @@ a.edit-btn svg{
     font-size: 1rem;
   }
   form.login button, form.register button, .create-post .create-post-btn{
-    width:95%; display: block;
+    width:100%; 
+    display: block;
     margin: 0px auto;
     background-color: #555;
     border: 0;
     color:#fff;
     border-radius: 5px;
-    padding: 5px 0px;
   }
   form.login .email-password, form.register .email-password{
     font-size: 1rem;
