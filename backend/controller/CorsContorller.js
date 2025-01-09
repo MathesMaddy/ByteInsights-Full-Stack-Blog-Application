@@ -1,6 +1,7 @@
 const whiteList = [ 
     'https://byteinsights-frontend.onrender.com', 
-    'http://192.168.43.154:5173',
+    'https://byteinsights.onrender.com',
+
 ];
 
 const websiteAllow = {    
