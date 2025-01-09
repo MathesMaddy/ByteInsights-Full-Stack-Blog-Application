@@ -14,9 +14,7 @@ export const Home = () => {
         .then( post => { 
             SetPosts(post)           
           })
-        }).catch(e) {
-      console.log(e);
-      }
+        })
     }, [])
 
     return (
