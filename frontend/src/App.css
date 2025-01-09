@@ -63,7 +63,12 @@ hr{
   margin: 0;
 }
 
-
+.loading-posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  height: 100vh;  
+}
 div.post{
   max-width: 1000px;
   display: grid;
