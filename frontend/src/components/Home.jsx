@@ -19,7 +19,7 @@ export const Home = () => {
 
     return (
       <> 
-        { !post.length && (
+        { !posts.length && (
           <div className = "loading-posts">
             <h2> Server has been Restarted. Blog Post's Loading within 50 Seconds. </h2>
           </div>
