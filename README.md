@@ -23,9 +23,13 @@ A full-stack blog application built with Node.js, Express, MongoDB, and React. T
     - Express.js
     - JWT (JSON Web Tokens) for authentication
     - Bcrypt.js for hashing passwords
-    - MongoDB (Mongoose for ORM)
+    - Mongoose
     - CORS for cross-origin requests
     - Cookie-based session management
+
+- Database:
+    - MongoDB
+    
 - Deployment:
 
     -  Frontend (React app) and Backend (API server) Used Render
